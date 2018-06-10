@@ -1,0 +1,144 @@
+﻿    #连接ABC缓存
+    def HQFT_connectABCCache(self):
+        from common import HQFT_Invoke_Objects
+        reload(HQFT_Invoke_Objects)
+        allObjLN = []
+        allObjs = mc.ls('*.ABC_LongName','*:*.ABC_LongName')
+        errorABC = []
+        num = 0
+        noABCObjects = []
+
+        if allObjs:
+            for obj in allObjs:
+                abcTran = ''
+                abcShape = ''
+                oldTran = mc.getAttr(obj)
+                #通过ABC属性记录获取渲染模型名字
+                if mc.objExists(oldTran) and (oldTran not in allObjLN):
+                    allObjLN.append(oldTran)
+                    if mc.nodeType(obj) == 'transform':
+                        abcTran = mc.ls(obj,o=True)[0]
+                        if mc.listRelatives(abcTran,s=True,ni=True,f=True):
+                            abcShape = mc.listRelatives(abcTran,s=True,ni=True,f=True)[0]
+                    elif mc.nodeType(obj) == 'mesh':
+                        abcShape = mc.ls(obj,o=True)[0]
+                        if mc.listRelatives(abcShape,p=True,f=True):
+                            abcTran = mc.listRelatives(abcShape,p=True,f=True)[0]
+                    oldShape = ''
+                    if mc.objExists(oldTran) and mc.listRelatives(oldTran,s=True,ni=True,f=True):
+                        oldShape = mc.listRelatives(oldTran,s=True,ni=True,f=True)[0]
+                    else:
+                        mc.error(u'abc属性记录的对应物体不存在！%s'%oldTran)
+                    oldTran_bs = oldTran.replace(':MODEL|',':MODEL_BS|') + '_bs'
+                    oldShape_bs = ''
+                    if mc.objExists(oldTran_bs) and mc.listRelatives(oldTran_bs,s=True,ni=True,f=True):
+                        oldShape_bs = mc.listRelatives(oldTran_bs,s=True,ni=True,f=True)[0]
+                    else:
+                        mc.error(u'%s没有bs物休的shape节点'%oldTran_bs)
+
+                    #连接前关闭毛发显示
+                    allModePanel = mc.getPanel(type='modelPanel')
+                    if allModePanel:
+                        for mode in allModePanel:
+                            mc.modelEditor(mode,edit=True,pluginShapes=False)
+                            mc.modelEditor(mode,edit=True,rnm='base_OpenGL_Renderer')
+                    #有abc模型(abcTran)、渲染模型(oldTran)、BS模型(oldTran_bs)    
+                    if mc.objExists(abcTran) and mc.objExists(abcShape) and mc.objExists(oldTran) and mc.objExists(oldShape) and mc.objExists(oldTran_bs) and mc.objExists(oldShape_bs):
+                        isABCobj = mc.listConnections(abcTran,d=False,s=True,type='AlembicNode')
+                        isABCshape = mc.listConnections(abcShape,d=False,s=True,type='AlembicNode')
+                        # 没有连接abc缓存节点，添加到列表
+                        if (not isABCobj) and (not isABCshape):
+                            #print u'%s物体没有abc'%abcTran
+                            noABCObjects.append(abcTran)
+
+                        else:
+                            listTransConnects = mc.listConnections(abcTran,s=True,d=False,connections=True,plugs=True)
+                            listShapeConnects = mc.listConnections(abcShape,s=True,d=False,connections=True,plugs=True)
+                            #缓存连接到物体位移节点
+                            if listTransConnects:
+                                i = 0
+                                while i < len(listTransConnects):
+                                    if '.' in listTransConnects[i]:
+                                        newTConnect = oldTran + '.' + listTransConnects[i].split('.')[-1]
+                                        if mc.objExists(newTConnect):
+                                            #print 'newTConnect=',newTConnect
+                                            allConnections = mc.listConnections(newTConnect,d=False,s=True,connections=True,plugs=True)
+                                            if allConnections:
+                                                n=0
+                                                while n<len(allConnections):
+                                                    try:
+                                                        print u'删除连接%s----%s'%(allConnections[n+1],allConnections[n])
+                                                        mc.disconnectAttr(allConnections[n+1],allConnections[n])
+                                                    except:
+                                                        pass
+                                                    n += 2
+                                            try:
+                                                mc.defaultNavigation(ce=True,source=listTransConnects[i+1],destination=newTConnect)
+                                                num += 1
+                                            except:
+                                                mc.warning(u'连接%s节点时出错！'%newTConnect)
+                                    else:
+                                        mc.warning(u'%s属性名称不对。'%listTransConnects[i])
+                                    i += 2
+                            #缓存连接到物体形状节点
+                            if listShapeConnects:
+                                i = 0
+                                while i < len(listShapeConnects):
+                                    if '.' in listShapeConnects[i]:
+                                        newSConnect = oldShape_bs + '.' + listShapeConnects[i].split('.')[-1]
+                                        if mc.objExists(newSConnect):
+                                            #print 'newSConnect=',newSConnect
+                                            allConnections = mc.listConnections(newSConnect,d=False,s=True,connections=True,plugs=True)
+                                            if allConnections:
+                                                n=0
+                                                while n<len(allConnections):
+                                                    try:
+                                                        print u'删除连接%s----%s'%(allConnections[n+1],allConnections[n])
+                                                        mc.disconnectAttr(allConnections[n+1],allConnections[n])
+                                                    except:
+                                                        pass
+                                                    n+=2
+                                            try:
+                                                mc.defaultNavigation(ce=True,source=listShapeConnects[i+1],destination=newSConnect)
+                                                num += 1
+                                            except:
+                                                mc.warning(u'连接%s节点时出错！'%newSConnect)
+                                    else:
+                                        mc.warning(u'%s属性名称不对。'%listShapeConnects[i])
+                                    i += 2
+
+                    else:
+                        print 'abcTran=',abcTran
+                        print 'abcShape=',abcShape
+                        print 'oldTran=',oldTran
+                        print 'oldShape=',oldShape
+                        print 'oldTran_bs=',oldTran_bs
+                        print 'oldShape_bs=',oldShape_bs
+                        errorABC.append(abcTran)
+                else:
+                    pass
+        else:
+            mc.warning(u'带属性ABC物体不存在！')
+
+        if noABCObjects:
+            mc.warning(u'没有abc缓存！%s'%noABCObjects)
+
+        #隐藏所有低模 xcz.2018.4.3
+        allLower = mc.ls('*:Model_Low')
+        if allLower:
+            for low in allLower:
+                try:
+                    mc.setAttr('%s.visibility'%low,False)
+                except:
+                    allLowerObj = HQFT_Invoke_Objects.HQFT_Invoke_Objects().walkSelectObjects([low],['mesh'])
+                    for lowerObj in allLowerObj:
+                        try:
+                            mc.setAttr('%s.visibility'%lowerObj,False)
+                        except:
+                            pass
+
+        if errorABC:
+            print '-----------------------------------------'
+            print u'以下ABC物体找不到对应模型：'
+            print errorABC
+        print u'-----------------ABC Cache已经连接到%s个物体！-----------------'%num

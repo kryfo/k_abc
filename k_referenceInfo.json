@@ -1,0 +1,28 @@
+{
+    "E:/work/8_0410_test/scenes/PangLong_Rig.ma": {
+        "node": [
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_hair_GRP|PangLong_Rig:c_panglong_hair_1|PangLong_Rig:c_panglong_hair_1Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_hair_GRP|PangLong_Rig:c_panglong_hair_2|PangLong_Rig:c_panglong_hair_2Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_hair_GRP|PangLong_Rig:c_panglong_hair_3|PangLong_Rig:c_panglong_hair_3Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_eye_GRP|PangLong_Rig:c_panglong_L_eyeIn_GRP|PangLong_Rig:c_panglong_L_eyeIn_1|PangLong_Rig:c_panglong_L_eyeIn_1Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_eye_GRP|PangLong_Rig:c_panglong_L_eyeIn_GRP|PangLong_Rig:c_panglong_L_eyeIn_2|PangLong_Rig:c_panglong_L_eyeIn_2Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_eye_GRP|PangLong_Rig:c_panglong_L_eyeOut_GRP|PangLong_Rig:c_panglong_L_eyeOut_1|PangLong_Rig:c_panglong_L_eyeOut_1Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_eye_GRP|PangLong_Rig:c_panglong_R_eyeIn_GRP|PangLong_Rig:c_panglong_R_eyeIn_1|PangLong_Rig:c_panglong_R_eyeIn_1Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_eye_GRP|PangLong_Rig:c_panglong_R_eyeIn_GRP|PangLong_Rig:c_panglong_R_eyeIn_2|PangLong_Rig:c_panglong_R_eyeIn_2Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_eye_GRP|PangLong_Rig:c_panglong_R_eyeOut_GRP|PangLong_Rig:c_panglong_R_eyeOut_1|PangLong_Rig:c_panglong_R_eyeOut_1Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_mouth_GRP|PangLong_Rig:c_panglong_upTeeth_GRP|PangLong_Rig:c_panglong_upTeeth_1|PangLong_Rig:c_panglong_upTeeth_1Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_mouth_GRP|PangLong_Rig:c_panglong_upTeeth_GRP|PangLong_Rig:c_panglong_upTeeth_2|PangLong_Rig:c_panglong_upTeeth_2Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_mouth_GRP|PangLong_Rig:c_panglong_tongue_GRP|PangLong_Rig:c_panglong_tongue_1|PangLong_Rig:c_panglong_tongue_1Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_mouth_GRP|PangLong_Rig:c_panglong_lowTeeth_GRP|PangLong_Rig:c_panglong_lowTeeth_1|PangLong_Rig:c_panglong_lowTeeth_1Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_mouth_GRP|PangLong_Rig:c_panglong_lowTeeth_GRP|PangLong_Rig:c_panglong_lowTeeth_2|PangLong_Rig:c_panglong_lowTeeth_2Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_head_GRP|PangLong_Rig:c_panglong_headAss_GRP|PangLong_Rig:c_panglong_headAss_1|PangLong_Rig:c_panglong_headAss_1Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_body_GRP|PangLong_Rig:c_panglong_bodyAss_GRP|PangLong_Rig:c_panglong_bodyAss_1|PangLong_Rig:c_panglong_bodyAss_1Shape", 
+            "|PangLong_Rig:char|PangLong_Rig:Geometry|PangLong_Rig:c_panglong_model_GRP|PangLong_Rig:c_panglong_geometry_GRP|PangLong_Rig:c_panglong_body_GRP|PangLong_Rig:c_panglong_body_1|PangLong_Rig:c_panglong_body_1Shape"
+        ], 
+        "abcNodeName": "ddd_AlembicNode", 
+        "filepath": "E:/work/8_0410_test/scenes/PangLong_Rig.ma", 
+        "namespace": "PangLong_Rig", 
+        "subref": 0, 
+        "Topgroup": "PangLong_Rig:char"
+    }
+}
